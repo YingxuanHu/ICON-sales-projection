@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sales-projection"
+version = "0.1.0"
+description = "Sales projection toolkit with ARIMA, Random Forest, and ensemble comparisons."
+authors = [{name = "ICON Data"}]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "statsmodels",
+    "scikit-learn",
+    "python-dateutil",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "mypy",
+    "pytest",
+]
+
+[project.scripts]
+sales-projection = "sales_projection.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
